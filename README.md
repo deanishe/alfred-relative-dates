@@ -8,6 +8,10 @@ Supports multiple locales/languages.
 
 ![](https://github.com/deanishe/alfred-relative-dates/raw/master/demo.gif "")
 
+## Downloading ##
+
+Get the workflow from [GitHub](https://github.com/deanishe/alfred-relative-dates/raw/master/Relative%20Dates.alfredworkflow) or [Packal](http://www.packal.org/workflow/relative-dates).
+
 ## Keywords ##
 
 - `date` — Generate a formatted date using the [input format][]
@@ -41,7 +45,7 @@ Months are not supported, as it leads to ambiguity: what if today is the 31st, b
 
 The Workflow includes a few defaults for the locales `en_US`, `en_GB` and `de_DE`.
 
-You can specify your own custom date formats using the following symbols, and you can also specify a `LANG` together with the format `lang=de` or `lang=de_DE` if you want to use dates formatted for a language different to your system's.
+You can specify your own custom date formats using the following symbols, and you can also specify a language (locale) with the format `lang=de` or `lang=de_DE` if you want to use dates formatted for a language different to your system's.
 
 | Symbol |                                                                                   Description                                                                                    |                                     Examples                                     |
 |--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
@@ -61,11 +65,17 @@ You can specify your own custom date formats using the following symbols, and yo
 | %x     | Locale’s appropriate date representation.                                                                                                                                        | 08/16/88 (None); 08/16/1988 (en_US); 16.08.1988 (de_DE)                          |
 | %%     | A literal '%' character.                                                                                                                                                         | %                                                                                |
 
+
 ### Examples ###
 
 - `%d/%m/%Y` — e.g. 21/01/2014
 - `%A %B %d %Y` — e.g. Wednesday March 12 2014
 - `%A %d. %B %Y lang=de` — e.g. Mittwoch 12. März 2014
+
+
+## Bug reports, feedback ##
+
+Report any issues or feature requests either on [GitHub](https://github.com/deanishe/alfred-relative-dates/issues) or the [Alfred Forum](http://www.alfredforum.com/topic/4056-relative-dates/).
 
 ## Licensing, thanks etc. ##
 
