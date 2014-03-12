@@ -57,7 +57,7 @@ def main(wf):
                         icon=ICON_WARNING)
         elif not common.format_valid(fmt):
             wf.add_item("'{}' is not a valid date format".format(fmt),
-                        "Use 'dthelp' for formatting help",
+                        "Use 'datehelp' for formatting help",
                         valid=False,
                         icon=ICON_ERROR)
         else:

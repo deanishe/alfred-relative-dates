@@ -656,40 +656,41 @@ sub {
 </head>
 <body class="normal">
   <div id="wrapper">
-      <h1 id="relativedatesalfredworkflow">Relative Dates Alfred Workflow</h1>
+      <h1 id="relativedatesworkflowhelp">Relative Dates Workflow Help</h1>
 
 <p>Generate relative dates based on a simple input format and your own date formatting parameters (there are some defaults).</p>
 
 <h2 id="keywords">Keywords</h2>
 
 <ul>
-<li><code>dt</code> — Generate a formatted date using the <a href="#inputformat">input format</a>
+<li><code>date</code> — Generate a formatted date using the <a href="#inputformat">input format</a>
 
 <ul>
 <li><code>↩</code> — Copy date to clipboard</li>
 <li><code>⌘+↩</code> — Copy date to clipboard and paste into frontmost app</li>
 </ul></li>
-<li><code>dthelp</code> — Open (this) help file</li>
-<li><code>dtformats</code> — View saved date formats
+<li><code>datehelp</code> — Open (this) help file</li>
+<li><code>dateformats</code> — View saved date formats
 
 <ul>
 <li><code>⌘+↩</code> — Delete custom date format</li>
 </ul></li>
-<li><code>dtadd</code> — Add a new date format
+<li><code>dateadd</code> — Add a new date format
 
 <ul>
 <li><code>↩</code> — Save the date format</li>
 </ul></li>
-<li><code>dtreset</code> — Reset the saved date formats to the defaults</li>
+<li><code>datereset</code> — Reset the saved date formats to the defaults</li>
 </ul>
 
 <h2 id="inputformat">Input format</h2>
 
-<p><code>+/-&lt;NUM&gt;(w|d|y)</code> where <code>w</code> = week(s), <code>d</code> = day(s) and <code>y</code> = year(s)</p>
+<p><code>(+/-)&lt;NUM&gt;(w|d|y)</code> where <code>w</code> = week(s), <code>d</code> = day(s) and <code>y</code> = year(s)</p>
 
 <h3 id="examples">Examples</h3>
 
 <ul>
+<li><code>0</code> = <code>now</code> = <code>today</code> — today&#8217;s date</li>
 <li><code>1d</code> — 1 day from now</li>
 <li><code>7d</code> = <code>1w</code> — 1 week from now</li>
 <li><code>-21d</code> = <code>-3w</code> — 3 weeks ago</li>

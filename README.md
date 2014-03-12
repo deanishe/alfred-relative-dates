@@ -6,15 +6,15 @@ Generate relative dates based on a simple input format and your own date formatt
 
 ## Keywords ##
 
-- `dt` — Generate a formatted date using the [input format][]
+- `date` — Generate a formatted date using the [input format][]
 	+ `↩` — Copy date to clipboard
 	+ `⌘+↩` — Copy date to clipboard and paste into frontmost app
-- `dthelp` — Open (this) help file
-- `dtformats` — View saved date formats
+- `datehelp` — Open (this) help file
+- `dateformats` — View saved date formats
 	+ `⌘+↩` — Delete custom date format
-- `dtadd` — Add a new date format
+- `dateadd` — Add a new date format
 	+ `↩` — Save the date format
-- `dtreset` — Reset the saved date formats to the defaults
+- `datereset` — Reset the saved date formats to the defaults
 
 
 ## Input format ##
