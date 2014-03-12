@@ -654,9 +654,162 @@ sub {
 </style>
 
 </head>
-<body class="normal firstload">
+<body class="normal">
   <div id="wrapper">
       <h1 id="relativedatesalfredworkflow">Relative Dates Alfred Workflow</h1>
+
+<p>Generate relative dates based on a simple input format and your own date formatting parameters (there are some defaults).</p>
+
+<h2 id="keywords">Keywords</h2>
+
+<ul>
+<li><code>dt</code> — Generate a formatted date using the <a href="#inputformat">input format</a>
+
+<ul>
+<li><code>↩</code> — Copy date to clipboard</li>
+<li><code>⌘+↩</code> — Copy date to clipboard and paste into frontmost app</li>
+</ul></li>
+<li><code>dthelp</code> — Open (this) help file</li>
+<li><code>dtformats</code> — View saved date formats
+
+<ul>
+<li><code>⌘+↩</code> — Delete custom date format</li>
+</ul></li>
+<li><code>dtadd</code> — Add a new date format
+
+<ul>
+<li><code>↩</code> — Save the date format</li>
+</ul></li>
+<li><code>dtreset</code> — Reset the saved date formats to the defaults</li>
+</ul>
+
+<h2 id="inputformat">Input format</h2>
+
+<p><code>+/-&lt;NUM&gt;(w|d|y)</code> where <code>w</code> = week(s), <code>d</code> = day(s) and <code>y</code> = year(s)</p>
+
+<h3 id="examples">Examples</h3>
+
+<ul>
+<li><code>1d</code> — 1 day from now</li>
+<li><code>7d</code> = <code>1w</code> — 1 week from now</li>
+<li><code>-21d</code> = <code>-3w</code> — 3 weeks ago</li>
+</ul>
+
+<h2 id="supportedformats">Supported formats</h2>
+
+<p>The Workflow includes a few defaults for <code>en_US</code>, <code>en_GB</code> and <code>de_DE</code>.</p>
+
+<p>You can specify your own custom date formats using the following symbols.</p>
+
+<p><strong>Note:</strong> You can also specify a <code>LANG</code> together with the format <code>lang=de</code> or <code>lang=de_DE</code> if you use dates formatted for a language different to your system&#8217;s.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Symbol</th>
+	<th style="text-align:left;">Description</th>
+	<th style="text-align:left;">Examples</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">%a</td>
+	<td style="text-align:left;">Weekday as locale’s abbreviated name.</td>
+	<td style="text-align:left;">Sun, Mon, &#8230;, Sat (en_US); So, Mo, &#8230;, Sa (de_DE)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">%A</td>
+	<td style="text-align:left;">Weekday as locale’s full name.</td>
+	<td style="text-align:left;">Sunday, Monday, &#8230;, Saturday (en_US); Sonntag, Montag, &#8230;, Samstag (de_DE)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">%w</td>
+	<td style="text-align:left;">Weekday as a decimal number, where 0 is Sunday and 6 is Saturday.</td>
+	<td style="text-align:left;">0, 1, &#8230;, 6</td>
+</tr>
+<tr>
+	<td style="text-align:left;">%d</td>
+	<td style="text-align:left;">Day of the month as a zero-padded decimal number.</td>
+	<td style="text-align:left;">01, 02, &#8230;, 31</td>
+</tr>
+<tr>
+	<td style="text-align:left;">%b</td>
+	<td style="text-align:left;">Month as locale’s abbreviated name.</td>
+	<td style="text-align:left;">Jan, Feb, &#8230;, Dec (en_US); Jan, Feb, &#8230;, Dez (de_DE)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">%B</td>
+	<td style="text-align:left;">Month as locale’s full name.</td>
+	<td style="text-align:left;">January, February, &#8230;, December (en_US); Januar, Februar, &#8230;, Dezember (de_DE)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">%m</td>
+	<td style="text-align:left;">Month as a zero-padded decimal number.</td>
+	<td style="text-align:left;">01, 02, &#8230;, 12</td>
+</tr>
+<tr>
+	<td style="text-align:left;">%y</td>
+	<td style="text-align:left;">Year without century as a zero-padded decimal number.</td>
+	<td style="text-align:left;">00, 01, &#8230;, 99</td>
+</tr>
+<tr>
+	<td style="text-align:left;">%Y</td>
+	<td style="text-align:left;">Year with century as a decimal number.</td>
+	<td style="text-align:left;">1970, 1988, 2001, 2013</td>
+</tr>
+<tr>
+	<td style="text-align:left;">%p</td>
+	<td style="text-align:left;">Locale’s equivalent of either AM or PM.</td>
+	<td style="text-align:left;">AM, PM (en_US); am, pm (de_DE)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">%j</td>
+	<td style="text-align:left;">Day of the year as a zero-padded decimal number.</td>
+	<td style="text-align:left;">001, 002, &#8230;, 366</td>
+</tr>
+<tr>
+	<td style="text-align:left;">%U</td>
+	<td style="text-align:left;">Week number of the year (Sunday as the first day of the week) as a zero padded decimal number. All days in a new year preceding the first Sunday are considered to be in week 0.</td>
+	<td style="text-align:left;">00, 01, &#8230;, 53</td>
+</tr>
+<tr>
+	<td style="text-align:left;">%W</td>
+	<td style="text-align:left;">Week number of the year (Monday as the first day of the week) as a decimal number. All days in a new year preceding the first Monday are considered to be in week 0.</td>
+	<td style="text-align:left;">00, 01, &#8230;, 53</td>
+</tr>
+<tr>
+	<td style="text-align:left;">%x</td>
+	<td style="text-align:left;">Locale’s appropriate date representation.</td>
+	<td style="text-align:left;">08/16/88 (None); 08/16/1988 (en_US); 16.08.1988 (de_DE)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">%%</td>
+	<td style="text-align:left;">A literal &#8216;%&#8217; character.</td>
+	<td style="text-align:left;">%</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="examples">Examples</h3>
+
+<ul>
+<li><code>%d/%m/%Y</code> — e.g. 21/01/2014</li>
+<li><code>%A %B %d %Y</code> — e.g. Wednesday March 12 2014</li>
+<li><code>%A %d. %B %Y lang=de</code> — e.g. Mittwoch 12. März 2014</li>
+</ul>
+
+<h2 id="licensingthanksetc">Licensing, thanks etc.</h2>
+
+<p>This Workflow is released under the <a href="http://opensource.org/licenses/MIT">MIT Licence</a>.</p>
+
+<p>It uses the <a href="https://github.com/docopt/docopt">docopt</a> library.</p>
 <!-- ##END MARKED WRAPPER## -->
     </div>
 </body>

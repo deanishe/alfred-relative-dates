@@ -1,8 +1,8 @@
 title: Relative Dates Help
 
-# Relative Dates Alfred Workflow #
+# Relative Dates Workflow Help #
 
-Generate relative dates based on a simple input format and your own formatting parameters (there are some defaults).
+Generate relative dates based on a simple input format and your own date formatting parameters (there are some defaults).
 
 ## Keywords ##
 
@@ -10,8 +10,11 @@ Generate relative dates based on a simple input format and your own formatting p
 	+ `↩` — Copy date to clipboard
 	+ `⌘+↩` — Copy date to clipboard and paste into frontmost app
 - `dthelp` — Open (this) help file
-- `dtformats` — View/add/delete custom date formats
-	+ `↩` — Add or delete custom date format
+- `dtformats` — View saved date formats
+	+ `⌘+↩` — Delete custom date format
+- `dtadd` — Add a new date format
+	+ `↩` — Save the date format
+- `dtreset` — Reset the saved date formats to the defaults
 
 
 ## Input format ##
@@ -31,7 +34,7 @@ The Workflow includes a few defaults for `en_US`, `en_GB` and `de_DE`.
 
 You can specify your own custom date formats using the following symbols.
 
-**Note:** You can also specify a `LANG` together with the format `LANG=de_DE` if you need to use dates formatted for a language different to your system's.
+**Note:** You can also specify a `LANG` together with the format `lang=de` or `lang=de_DE` if you use dates formatted for a language different to your system's.
 
 | Symbol |                                                                                   Description                                                                                    |                                     Examples                                     |
 |--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
@@ -55,4 +58,10 @@ You can specify your own custom date formats using the following symbols.
 
 - `%d/%m/%Y` — e.g. 21/01/2014
 - `%A %B %d %Y` — e.g. Wednesday March 12 2014
-- `%A %d. %B %Y LANG=de_DE` — e.g. Mittwoch 12. März 2014
+- `%A %d. %B %Y lang=de` — e.g. Mittwoch 12. März 2014
+
+## Licensing, thanks etc. ##
+
+This Workflow is released under the [MIT Licence](http://opensource.org/licenses/MIT).
+
+It uses the [docopt](https://github.com/docopt/docopt) library.

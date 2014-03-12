@@ -13,7 +13,6 @@
 
 from __future__ import print_function, unicode_literals
 
-import sys
 import os
 import subprocess
 import locale
@@ -22,36 +21,43 @@ import re
 from workflow import Workflow
 
 
+log = None
+
+
 LOCALE_MATCH = re.compile(r"""([a-z]{2}_[A-Z]{2}).*""").match
+LANG_SEARCH = re.compile(r"""LANG=([a-z]{2}(?:_[A-Z]{2})?)""",
+                         re.IGNORECASE).search
+QUERY_MATCH = re.compile(r"""([+-]{0,1})(\d+)([d|w|y])""",
+                         re.IGNORECASE).match
 
 
 FALLBACK_DATE_FORMATS = [
-        '%Y-%m-%d',
-        '%d/%m/%Y',
-        '%a, %d %b %Y',
-        '%a, %d %B %Y',
+    '%x',
+    '%Y-%m-%d',
+    '%a %d %b %Y',
+    '%a %d %B %Y',
 ]
 
 DEFAULT_DATE_FORMATS = {
     'en_GB': [
+        '%x',
         '%Y-%m-%d',
-        '%d/%m/%Y',
         '%a, %d %b. %Y',
         '%a, %d %B %Y',
         '%d %b. %Y',
         '%d %B %Y',
     ],
     'en_US': [
+        '%x',
         '%Y-%m-%d',
-        '%m/%d/%Y',
         '%a, %b. %d %Y',
         '%a, %B %d %Y',
         '%b. %d %Y',
         '%B %d %Y',
     ],
     'de_DE': [
+        '%x',
         '%Y-%m-%d',
-        '%d.%m.%Y',
         '%a, %d. %b. %Y',
         '%a, %d. %B %Y',
         '%d. %b. %Y',
@@ -60,18 +66,101 @@ DEFAULT_DATE_FORMATS = {
 }
 
 
-def set_locale():
-    """Python libs don't work inside Alfred. Use ``defaults`` instead"""
-    if not os.getenv('LANG'):
-        output = subprocess.check_output(['defaults', 'read', '-g',
-                                          'AppleLocale']).strip()
-        m = LOCALE_MATCH(output)
+class DateError(Exception):
+    pass
+
+
+class InvalidFormat(DateError):
+    pass
+
+
+class InvalidInput(DateError):
+    pass
+
+
+def parse_query(query):
+    """Return :class:`~datetime.date` or None"""
+    m = QUERY_MATCH(query)
+    if not m:
+        return None
+    sign = m.group(1) or '+'
+    count = int(m.group(2))
+    unit = m.group(3).lower()
+    log.debug('sign : {} count : {} units : {}'.format(sign, count, unit))
+    if unit == 'w':
+        count = count * 7
+    elif unit == 'y':
+        count = count * 365
+    return date.today() + timedelta(days=count)
+
+
+def date_with_format(dt, fmt):
+    """Return :class:`datetime.date` formatted for output with date
+    format ``fmt``
+
+    """
+
+    fmt, lc = parse_date_format(fmt)
+    set_locale(lc)
+    result = dt.strftime(fmt)
+    set_locale()
+    return result
+
+
+def get_default_locale():
+    """Return system locale or raise :class:`ValueError`"""
+
+    if os.getenv('LANG'):
+        m = LOCALE_MATCH(os.getenv('LANG'))
         if not m:
-            log.error('No locale found')
-            return None
+            raise ValueError('Could not determine system locale')
+        return m.group(1)
+
+    output = subprocess.check_output(['defaults', 'read', '-g',
+                                      'AppleLocale']).strip()
+    m = LOCALE_MATCH(output)
+    if not m:
+        raise ValueError('Could not determine system locale')
+    return m.group(1)
+
+
+def parse_date_format(dateformat):
+    """Return ``(fmt, locale)``.
+
+    ``locale`` defaults to system locale if not in ``dateformat``
+    """
+
+    lc = None
+
+    m = LANG_SEARCH(dateformat)
+    if m:
         lc = m.group(1)
-        os.environ['LANG'] = '{}.UTF-8'.format(lc)
-    locale.setlocale(locale.LC_ALL, '')
+        fmt = dateformat[:m.start(0)] + dateformat[m.end(0):]
+    else:
+        fmt = dateformat
+    log.debug('locale : {}  dateformat: {}'.format(lc, fmt))
+    return (fmt, lc)
+
+
+def format_valid(fmt):
+    """Return ``True`` if ``fmt`` is valid, else ``False``"""
+    fmt, lc = parse_date_format(fmt)
+    try:
+        date.today().strftime(fmt)
+    except ValueError:
+        return False
+    return True
+
+
+def set_locale(lc=None):
+    """Python libs don't work inside Alfred. Use ``defaults`` instead"""
+
+    if not lc:
+        lc = get_default_locale()
+
+    log.debug('locale : {!r}'.format(lc))
+
+    locale.setlocale(locale.LC_ALL, (lc, 'UTF-8'))
 
 
 def get_default_formats():
@@ -79,7 +168,12 @@ def get_default_formats():
     return DEFAULT_DATE_FORMATS.get(lc, FALLBACK_DATE_FORMATS)
 
 
-def get_all_formats():
+def get_formats():
     """Return combination of saved custom formats and defaults for locale"""
-    custom_formats = Workflow().settings.get('custom_formats', [])
-    return custom_formats + get_default_formats()
+
+    wf = Workflow()
+
+    if not 'date_formats' in wf.settings:
+        wf.settings['date_formats'] = get_default_formats()
+
+    return wf.settings.get('date_formats')

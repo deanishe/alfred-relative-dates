@@ -6,6 +6,50 @@
 	<string>net.deanishe.alfred-relative-dates</string>
 	<key>connections</key>
 	<dict>
+		<key>137587A8-1B31-43EB-A46B-6070D39C1355</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3C02B8C5-758B-4727-AE42-6A85332F2680</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>15ABEEAA-1E4C-4076-BF14-BA323D0ECE57</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E5233E88-6FB4-4727-9D62-1439ED410248</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>3C02B8C5-758B-4727-AE42-6A85332F2680</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1F74E2E6-08E7-4AB6-823F-E17E1AE946E5</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>4E744490-BC53-4C61-92FC-E3654FE99587</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>15ABEEAA-1E4C-4076-BF14-BA323D0ECE57</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>5945603F-CB7C-4B7D-A5B7-406F63644AA5</key>
 		<array>
 			<dict>
@@ -42,9 +86,9 @@
 				<key>destinationuid</key>
 				<string>5945603F-CB7C-4B7D-A5B7-406F63644AA5</string>
 				<key>modifiers</key>
-				<integer>0</integer>
+				<integer>1048576</integer>
 				<key>modifiersubtext</key>
-				<string></string>
+				<string>Delete date format</string>
 			</dict>
 		</array>
 		<key>FBF6AD79-A50F-48D4-B7DA-5C621D9D9287</key>
@@ -72,8 +116,23 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>2BDFF35C-E603-4CB8-A1F2-D1BA740E78D2</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
@@ -95,38 +154,6 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>7DF57177-C275-45CF-ACF2-D2E853DCF1E7</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>2BDFF35C-E603-4CB8-A1F2-D1BA740E78D2</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>127</integer>
-				<key>script</key>
-				<string>open README.html</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>00A6E5C7-0B5C-48A2-B9E6-257CAC7D209A</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -170,16 +197,33 @@
 			<key>config</key>
 			<dict>
 				<key>escaping</key>
-				<integer>102</integer>
+				<integer>127</integer>
 				<key>script</key>
-				<string>python formats.py edit "{query}"</string>
+				<string>open README.html</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>5945603F-CB7C-4B7D-A5B7-406F63644AA5</string>
+			<string>00A6E5C7-0B5C-48A2-B9E6-257CAC7D209A</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>python formats.py add "{query}"</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>15ABEEAA-1E4C-4076-BF14-BA323D0ECE57</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -187,19 +231,19 @@
 			<key>config</key>
 			<dict>
 				<key>argumenttype</key>
-				<integer>1</integer>
+				<integer>0</integer>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>dtformats</string>
+				<string>dtadd</string>
 				<key>runningsubtext</key>
-				<string>Loading preferences…</string>
+				<string>Validating format…</string>
 				<key>script</key>
-				<string>python formats.py show "{query}"</string>
+				<string>python formats.py new "{query}"</string>
 				<key>subtext</key>
-				<string>Add your own custom date formats</string>
+				<string>Enter a date format</string>
 				<key>title</key>
-				<string>Custom Date Formats</string>
+				<string>Add Custom Date Format</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -208,7 +252,7 @@
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>9AB1836F-2C0F-47C9-8E97-5E063E4C0559</string>
+			<string>4E744490-BC53-4C61-92FC-E3654FE99587</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -228,12 +272,121 @@
 				<key>text</key>
 				<string>{query}</string>
 				<key>title</key>
-				<string>Custom Date Format</string>
+				<string>Date Formats</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
 			<string>E5233E88-6FB4-4727-9D62-1439ED410248</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>python formats.py delete "{query}"</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>5945603F-CB7C-4B7D-A5B7-406F63644AA5</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>dtformats</string>
+				<key>runningsubtext</key>
+				<string>Loading preferences…</string>
+				<key>script</key>
+				<string>python formats.py show</string>
+				<key>subtext</key>
+				<string>A list of saved date formats</string>
+				<key>title</key>
+				<string>Date Formats</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>9AB1836F-2C0F-47C9-8E97-5E063E4C0559</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>dtreset</string>
+				<key>subtext</key>
+				<string>Reset date formats to default</string>
+				<key>text</key>
+				<string>Reset Date Formats</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>137587A8-1B31-43EB-A46B-6070D39C1355</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>python formats.py reset</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>3C02B8C5-758B-4727-AE42-6A85332F2680</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>The default formats have been restored</string>
+				<key>title</key>
+				<string>Date Formats Reset</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>1F74E2E6-08E7-4AB6-823F-E17E1AE946E5</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -245,17 +398,42 @@
 		<key>00A6E5C7-0B5C-48A2-B9E6-257CAC7D209A</key>
 		<dict>
 			<key>ypos</key>
-			<real>130</real>
+			<real>120</real>
+		</dict>
+		<key>137587A8-1B31-43EB-A46B-6070D39C1355</key>
+		<dict>
+			<key>ypos</key>
+			<real>450</real>
+		</dict>
+		<key>15ABEEAA-1E4C-4076-BF14-BA323D0ECE57</key>
+		<dict>
+			<key>ypos</key>
+			<real>230</real>
+		</dict>
+		<key>1F74E2E6-08E7-4AB6-823F-E17E1AE946E5</key>
+		<dict>
+			<key>ypos</key>
+			<real>450</real>
 		</dict>
 		<key>2BDFF35C-E603-4CB8-A1F2-D1BA740E78D2</key>
 		<dict>
 			<key>ypos</key>
 			<real>10</real>
 		</dict>
+		<key>3C02B8C5-758B-4727-AE42-6A85332F2680</key>
+		<dict>
+			<key>ypos</key>
+			<real>450</real>
+		</dict>
+		<key>4E744490-BC53-4C61-92FC-E3654FE99587</key>
+		<dict>
+			<key>ypos</key>
+			<real>230</real>
+		</dict>
 		<key>5945603F-CB7C-4B7D-A5B7-406F63644AA5</key>
 		<dict>
 			<key>ypos</key>
-			<real>260</real>
+			<real>340</real>
 		</dict>
 		<key>7DF57177-C275-45CF-ACF2-D2E853DCF1E7</key>
 		<dict>
@@ -265,22 +443,22 @@
 		<key>899FF57B-674B-412E-893F-8E4B99C6EBBB</key>
 		<dict>
 			<key>ypos</key>
-			<real>130</real>
+			<real>120</real>
 		</dict>
 		<key>9AB1836F-2C0F-47C9-8E97-5E063E4C0559</key>
 		<dict>
 			<key>ypos</key>
-			<real>260</real>
+			<real>340</real>
 		</dict>
 		<key>E5233E88-6FB4-4727-9D62-1439ED410248</key>
 		<dict>
 			<key>ypos</key>
-			<real>260</real>
+			<real>290</real>
 		</dict>
 		<key>FBF6AD79-A50F-48D4-B7DA-5C621D9D9287</key>
 		<dict>
 			<key>ypos</key>
-			<real>130</real>
+			<real>120</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
