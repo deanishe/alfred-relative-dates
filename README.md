@@ -4,6 +4,10 @@ title: Relative Dates Help
 
 Generate relative dates based on a simple input format and your own date formatting parameters (there are some defaults).
 
+Supports multiple locales/languages.
+
+![](https://github.com/deanishe/alfred-relative-dates/raw/master/demo.gif "")
+
 ## Keywords ##
 
 - `date` — Generate a formatted date using the [input format][]
