@@ -35,11 +35,9 @@ Supports multiple locales/languages.
 
 ## Supported formats ##
 
-The Workflow includes a few defaults for `en_US`, `en_GB` and `de_DE`.
+The Workflow includes a few defaults for the locales `en_US`, `en_GB` and `de_DE`.
 
-You can specify your own custom date formats using the following symbols.
-
-**Note:** You can also specify a `LANG` together with the format `lang=de` or `lang=de_DE` if you use dates formatted for a language different to your system's.
+You can specify your own custom date formats using the following symbols, and you can also specify a `LANG` together with the format `lang=de` or `lang=de_DE` if you want to use dates formatted for a language different to your system's.
 
 | Symbol |                                                                                   Description                                                                                    |                                     Examples                                     |
 |--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
