@@ -34,32 +34,32 @@ QUERY_MATCH = re.compile(r"""([+-]{0,1})(\d+)([d|w|y])""",
 FALLBACK_DATE_FORMATS = [
     '%x',
     '%Y-%m-%d',
-    '%a %d %b %Y',
-    '%a %d %B %Y',
+    '%d %b %Y',
+    '%d %B %Y',
 ]
 
 DEFAULT_DATE_FORMATS = {
     'en_GB': [
         '%x',
         '%Y-%m-%d',
-        '%a, %d %b. %Y',
-        '%a, %d %B %Y',
+        '%d %b. %Y',
+        '%d %B %Y',
         '%d %b. %Y',
         '%d %B %Y',
     ],
     'en_US': [
         '%x',
         '%Y-%m-%d',
-        '%a, %b. %d %Y',
-        '%a, %B %d %Y',
+        '%b. %d %Y',
+        '%B %d %Y',
         '%b. %d %Y',
         '%B %d %Y',
     ],
     'de_DE': [
         '%x',
         '%Y-%m-%d',
-        '%a, %d. %b. %Y',
-        '%a, %d. %B %Y',
+        '%d. %b. %Y',
+        '%d. %B %Y',
         '%d. %b. %Y',
         '%d. %B %Y',
     ],
@@ -91,7 +91,11 @@ def parse_query(query):
         count = count * 7
     elif unit == 'y':
         count = count * 365
-    return date.today() + timedelta(days=count)
+    if sign == '+':
+        return date.today() + timedelta(days=count)
+    elif sign == '-':
+        return date.today() - timedelta(days=count)
+    raise ValueError('Unknown sign : {}'.format(sign))
 
 
 def date_with_format(dt, fmt):

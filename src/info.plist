@@ -136,7 +136,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>dt</string>
+				<string>date</string>
 				<key>runningsubtext</key>
 				<string>Crunching numbers…</string>
 				<key>script</key>
@@ -163,7 +163,7 @@
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>dthelp</string>
+				<string>datehelp</string>
 				<key>subtext</key>
 				<string>View the help file</string>
 				<key>text</key>
@@ -235,7 +235,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>dtadd</string>
+				<string>dateadd</string>
 				<key>runningsubtext</key>
 				<string>Validating format…</string>
 				<key>script</key>
@@ -306,7 +306,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>dtformats</string>
+				<string>dateformats</string>
 				<key>runningsubtext</key>
 				<string>Loading preferences…</string>
 				<key>script</key>
@@ -333,7 +333,7 @@
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>dtreset</string>
+				<string>datereset</string>
 				<key>subtext</key>
 				<string>Reset date formats to default</string>
 				<key>text</key>

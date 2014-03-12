@@ -19,10 +19,11 @@ Generate relative dates based on a simple input format and your own date formatt
 
 ## Input format ##
 
-`+/-<NUM>(w|d|y)` where `w` = week(s), `d` = day(s) and `y` = year(s)
+`(+/-)<NUM>(w|d|y)` where `w` = week(s), `d` = day(s) and `y` = year(s)
 
 ### Examples ###
 
+- `0` = `now` = `today` — today's date
 - `1d` — 1 day from now
 - `7d` = `1w` — 1 week from now
 - `-21d` = `-3w` — 3 weeks ago

@@ -49,18 +49,19 @@ def main(wf):
 
     if not dt:  # Didn't understand query
         wf.add_item("Couldn't understand '{}'".format(query),
-                    "Use 'dthelp' for help on formatting",
+                    "Use 'datehelp' for help on formatting",
                     valid=False, icon=ICON_ERROR)
         wf.send_feedback()
         return 0
     log.debug('date : {0.year}-{0.month}-{0.day}'.format(dt))
     # get date formats
-    for fmt in common.get_formats():
-        value = unicode(dt.strftime(fmt), encoding)
+    for i, fmt in enumerate(common.get_formats()):
+        value = unicode(common.date_with_format(dt, fmt), encoding)
         wf.add_item(value,
                     'Copy to clipboard',
                     arg=value,
                     valid=True,
+                    uid='date-{:02d}'.format(i),
                     icon='icon.png')
     wf.send_feedback()
     log.debug('finished.')

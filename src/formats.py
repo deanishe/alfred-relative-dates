@@ -109,7 +109,6 @@ def main(wf):
             print("'{}' does not exist".format(fmt))
         else:
             date_formats.remove(fmt)
-            date_formats.sort()
             wf.settings['date_formats'] = date_formats
             print("'{}' deleted".format(fmt))
 
