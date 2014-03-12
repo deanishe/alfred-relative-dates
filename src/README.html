@@ -693,6 +693,10 @@ sub {
 
 <p><code>(+/-)&lt;NUM&gt;(w|d|y)</code> where <code>w</code> = week(s), <code>d</code> = day(s) and <code>y</code> = year(s)</p>
 
+<p>You needn&#8217;t specify a sign: <code>+</code> is understood as the default, so <code>+1d</code> and <code>1d</code> mean the same thing.</p>
+
+<p>Months are not supported, as it leads to ambiguity: what if today is the 31st, but the target month only has 30 days? Similarly, a year is naively defined as 365 days.</p>
+
 <h3 id="examples">Examples</h3>
 
 <ul>

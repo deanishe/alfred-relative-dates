@@ -25,6 +25,10 @@ Supports multiple locales/languages.
 
 `(+/-)<NUM>(w|d|y)` where `w` = week(s), `d` = day(s) and `y` = year(s)
 
+You needn't specify a sign: `+` is understood as the default, so `+1d` and `1d` mean the same thing.
+
+Months are not supported, as it leads to ambiguity: what if today is the 31st, but the target month only has 30 days? Similarly, a year is naively defined as 365 days.
+
 ### Examples ###
 
 - `0` = `now` = `today` — today's date
