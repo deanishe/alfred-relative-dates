@@ -1,6 +1,4 @@
-title: Relative Dates Help
-
-# Relative Dates Workflow Help #
+# Relative Dates Alfred Workflow #
 
 Generate relative dates based on a simple input format and your own date formatting parameters (there are some defaults).
 
