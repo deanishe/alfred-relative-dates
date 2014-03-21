@@ -1,6 +1,6 @@
 # Relative Dates Alfred Workflow #
 
-Generate relative dates based on a simple input format and your own date formatting parameters (there are some defaults).
+Generate relative dates based on a simple input format and your own date formatting parameters (there are some default placeholders you can delete).
 
 Supports multiple locales/languages.
 
@@ -17,7 +17,7 @@ Get the workflow from [GitHub](https://github.com/deanishe/alfred-relative-dates
 	+ `⌘+↩` — Copy date to clipboard and paste into frontmost app
 - `datehelp` — Open (this) help file
 - `dateformats` — View saved date formats
-	+ `⌘+↩` — Delete custom date format
+	+ `⌘+↩` — Delete date format
 - `dateadd` — Add a new date format
 	+ `↩` — Save the date format
 - `datereset` — Reset the saved date formats to the defaults
