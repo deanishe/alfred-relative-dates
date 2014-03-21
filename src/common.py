@@ -164,7 +164,10 @@ def set_locale(lc=None):
 
     log.debug('locale : {!r}'.format(lc))
 
-    locale.setlocale(locale.LC_ALL, (lc, 'UTF-8'))
+    try:
+        locale.setlocale(locale.LC_ALL, (lc, 'UTF-8'))
+    except locale.Error:
+        locale.setlocale(locale.LC_ALL, (lc[:2], 'UTF-8'))
 
 
 def get_default_formats():
