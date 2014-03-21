@@ -13,7 +13,6 @@
 
 from __future__ import print_function, unicode_literals
 
-import os
 import subprocess
 import locale
 from datetime import date, timedelta
@@ -112,20 +111,31 @@ def date_with_format(dt, fmt):
 
 
 def get_default_locale():
-    """Return system locale or raise :class:`ValueError`"""
-
-    if os.getenv('LANG'):
-        m = LOCALE_MATCH(os.getenv('LANG'))
-        if not m:
-            raise ValueError('Could not determine system locale')
-        return m.group(1)
-
+    """Return system language"""
     output = subprocess.check_output(['defaults', 'read', '-g',
-                                      'AppleLocale']).strip()
-    m = LOCALE_MATCH(output)
-    if not m:
+                                      'AppleLanguages'])
+    output = output.strip('()\n ')
+    langs = [s.strip('", ').replace('-', '_') for s in output.split('\n')]
+    if not len(langs):
         raise ValueError('Could not determine system locale')
-    return m.group(1)
+    return langs[0]
+
+
+# def get_default_locale():
+#     """Return system locale or raise :class:`ValueError`"""
+
+#     if os.getenv('LANG'):
+#         m = LOCALE_MATCH(os.getenv('LANG'))
+#         if not m:
+#             raise ValueError('Could not determine system locale')
+#         return m.group(1)
+
+#     output = subprocess.check_output(['defaults', 'read', '-g',
+#                                       'AppleLocale']).strip()
+#     m = LOCALE_MATCH(output)
+#     if not m:
+#         raise ValueError('Could not determine system locale')
+#     return m.group(1)
 
 
 def parse_date_format(dateformat):
