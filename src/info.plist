@@ -4,6 +4,8 @@
 <dict>
 	<key>bundleid</key>
 	<string>net.deanishe.alfred-relative-dates</string>
+	<key>category</key>
+	<string>Tools</string>
 	<key>connections</key>
 	<dict>
 		<key>137587A8-1B31-43EB-A46B-6070D39C1355</key>
