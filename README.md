@@ -12,7 +12,7 @@ Get the workflow from [GitHub](https://github.com/deanishe/alfred-relative-dates
 
 ## Keywords ##
 
-- `date` — Generate a formatted date using the [input format][]
+- `date` — Generate a formatted date using the [input format](#input-format)
 	+ `↩` — Copy date to clipboard
 	+ `⌘+↩` — Copy date to clipboard and paste into frontmost app
 - `datehelp` — Open (this) help file
