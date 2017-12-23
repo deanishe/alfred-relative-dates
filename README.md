@@ -1,18 +1,40 @@
-# Relative Dates Alfred Workflow #
+
+Relative Dates Alfred Workflow
+==============================
 
 Generate relative dates based on a simple input format and your own date formatting parameters (there are some default placeholders you can delete).
 
 Supports multiple locales/languages.
 
-![](https://github.com/deanishe/alfred-relative-dates/raw/master/demo.gif "")
+![][demo]
 
-## Downloading ##
+<!-- MarkdownTOC autolink="true" bracket="round" depth="3" autoanchor="true" -->
 
-Get the workflow from [GitHub](https://github.com/deanishe/alfred-relative-dates/raw/master/Relative%20Dates.alfredworkflow) or [Packal](http://www.packal.org/workflow/relative-dates).
+- [Download & installation](#download--installation)
+- [Usage](#usage)
+- [Entering dates](#entering-dates)
+    - [Examples](#examples)
+- [Output date formats](#output-date-formats)
+    - [Examples](#examples-1)
+- [Bug reports, feedback](#bug-reports-feedback)
+- [Licensing, thanks etc.](#licensing-thanks-etc)
 
-## Keywords ##
+<!-- /MarkdownTOC -->
 
-- `date` — Generate a formatted date using the [input format](#input-format)
+<a name="download--installation"></a>
+Download & installation
+-----------------------
+
+Download the workflow from [GitHub][latest], then double-click the `Relative-Dates-XYZ.alfredworkflow` to install it in Alfred.
+
+
+<a name="usage"></a>
+Usage
+-----
+
+These are the default workflow keywords:
+
+- `date` — Generate a formatted date using the [input format](#input-format).
 	+ `↩` — Copy date to clipboard
 	+ `⌘+↩` — Copy date to clipboard and paste into frontmost app
 - `datehelp` — Open (this) help file
@@ -23,7 +45,9 @@ Get the workflow from [GitHub](https://github.com/deanishe/alfred-relative-dates
 - `datereset` — Reset the saved date formats to the defaults
 
 
-## Input format ##
+<a name="entering-dates"></a>
+Entering dates
+--------------
 
 `(+/-)<NUM>(w|d|y)` where `w` = week(s), `d` = day(s) and `y` = year(s)
 
@@ -31,6 +55,7 @@ You needn't specify a sign: `+` is understood as the default, so `+1d` and `1d` 
 
 Months are not supported, as it leads to ambiguity: what if today is the 31st, but the target month only has 30 days? Similarly, a year is naively defined as 365 days.
 
+<a name="examples"></a>
 ### Examples ###
 
 - `0` = `now` = `today` — today's date
@@ -39,7 +64,9 @@ Months are not supported, as it leads to ambiguity: what if today is the 31st, b
 - `-21d` = `-3w` — 3 weeks ago
 
 
-## Supported formats ##
+<a name="output-date-formats"></a>
+Output date formats
+-------------------
 
 The Workflow includes a few defaults for the locales `en_US`, `en_GB` and `de_DE`.
 
@@ -64,6 +91,7 @@ You can specify your own custom date formats using the following symbols, and yo
 | %%     | A literal '%' character.                                                                                                                                                         | %                                                                                |
 
 
+<a name="examples-1"></a>
 ### Examples ###
 
 - `%d/%m/%Y` — e.g. 21/01/2014
@@ -71,12 +99,25 @@ You can specify your own custom date formats using the following symbols, and yo
 - `%A %d. %B %Y lang=de` — e.g. Mittwoch 12. März 2014
 
 
-## Bug reports, feedback ##
+<a name="bug-reports-feedback"></a>
+Bug reports, feedback
+---------------------
 
-Report any issues or feature requests either on [GitHub](https://github.com/deanishe/alfred-relative-dates/issues) or the [Alfred Forum](http://www.alfredforum.com/topic/4056-relative-dates/).
+Report any issues or feature requests either on [GitHub][issues] or the [Alfred Forum][forum].
 
-## Licensing, thanks etc. ##
 
-This Workflow is released under the [MIT Licence](http://opensource.org/licenses/MIT).
+<a name="licensing-thanks-etc"></a>
+Licensing, thanks etc.
+----------------------
 
-It uses the [docopt](https://github.com/docopt/docopt) library.
+This Workflow is released under the [MIT Licence][licence].
+
+It uses the [Alfred-Workflow] and [docopt][docopt] libraries, also both MIT-licensed.
+
+
+[docopt]: https://github.com/docopt/docopt
+[licence]: http://opensource.org/licenses/MIT
+[issues]: https://github.com/deanishe/alfred-relative-dates/issues
+[forum]: http://www.alfredforum.com/topic/4056-relative-dates/
+[demo]: https://github.com/deanishe/alfred-relative-dates/raw/master/demo.gif
+[latest]: https://github.com/deanishe/alfred-relative-dates/releases/latest
