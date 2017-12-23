@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 #
-# Copyright © 2014 deanishe@deanishe.net
+# Copyright (c) 2014 deanishe@deanishe.net
 #
 # MIT Licence. See http://opensource.org/licenses/MIT
 #
@@ -34,16 +34,16 @@ log = None
 
 
 def main(wf):
+    """Run workflow."""
     from docopt import docopt
     import common
     common.log = log
 
-    log.debug('-' * 40)
-
     common.set_locale()
 
     args = docopt(__doc__, argv=wf.args)
-    log.debug('args : {}'.format(args))
+    log.debug('args=%r', args)
+
     fmt = args.get('<format>')
 
     date_formats = wf.settings.get('date_formats', [])
@@ -76,14 +76,22 @@ def main(wf):
 
         if not date_formats:  # warn of no formats
             wf.add_item('You have no custom formats',
-                        "Use 'dtadd' to add a custom format",
+                        "Use 'dateadd' to add a custom format",
                         valid=False,
                         icon=ICON_INFO)
 
         else:  # list custom formats
+
+            if wf.update_available:
+                wf.add_item(
+                    'An Update is Available',
+                    '↩ or ⇥ to install',
+                    valid=False,
+                    icon='update.png'
+                )
+
             for f in date_formats:
-                value = unicode(common.date_with_format(date.today(), f),
-                                'utf-8')
+                value = wf.decode(common.date_with_format(date.today(), f))
                 wf.add_item(f,
                             'e.g. {}'.format(value),
                             valid=True,
@@ -118,8 +126,6 @@ def main(wf):
         wf.settings['date_formats'] = common.get_default_formats()
         log.debug('Formats restored to defaults')
         log.debug(wf.settings['date_formats'])
-
-    log.debug('finished.')
 
 
 if __name__ == '__main__':
